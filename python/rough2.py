@@ -1,4 +1,11 @@
-f = lambda x: x**3 -2*x -5
+from fibonacci import fib, fib2
 
-print(f(2.09))
-print(f(2.1))
+import time
+n = 10000
+a = time.time()
+fib(n)
+b = time.time()
+fib2(n)
+c = time.time()
+
+print((b-a)/(c-b))

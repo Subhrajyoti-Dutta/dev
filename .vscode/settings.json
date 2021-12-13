@@ -1,0 +1,24 @@
+{
+	"sqltools.connections": [
+		{
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 5432,
+			"driver": "PostgreSQL",
+			"database": "flis",
+			"username": "postgres",
+			"name": "Practice",
+			"password": ""
+		},
+		{
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 5432,
+			"driver": "PostgreSQL",
+			"database": "lis",
+			"name": "Practice",
+			"username": "postgres",
+			"password": ""
+		}
+	]
+}

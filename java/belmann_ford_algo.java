@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class belmann_ford_algo{
     public static void main(String[] args){
@@ -7,7 +6,7 @@ public class belmann_ford_algo{
 }
 
 class Main{
-    double inf = double.Infinity;
+    double inf = Double.POSITIVE_INFINITY;
     int n = 8;
     int pairs[][] = {{}};
 }
