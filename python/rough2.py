@@ -1,11 +1,13 @@
-from fibonacci import fib, fib2
-
 import time
-n = 10000
-a = time.time()
-fib(n)
-b = time.time()
-fib2(n)
-c = time.time()
 
-print((b-a)/(c-b))
+def add():
+	x = 0
+	for i in range(10000000+1):
+		x += i
+	print(x)
+
+a = time.time()
+add()
+b = time.time()
+
+print(b-a)
