@@ -1,29 +1,52 @@
-import numpy as np
+def toposort(Alist):
+    (indegree,toposortlist) =({},[])
+    for u in Alist.keys():
+        indegree[u] = 0
+    for u in Alist.keys():
+        for v in Alist[u]:
+            indegree[v] += 1
 
-def map_numpy(func,np_array,*arg):
-    return np.vectorize(func)(np_array,*arg)
+    zerodegreeq = Queue()
+    for u in Alist.keys():
+        if indegree[u] == 0:
+            zerodegreeq.addq(u)
 
-def ver_join(x1,x2):
-    return np.concatenate((x1,x2),axis=0)
+    while (not zerodegreeq.isempty()):
+        j = zerodegreeq.delq()
+        toposortlist.append(j)
+        indegree[j] -= 1
+        for k in Alist[j]:
+            indegree[k] -= 1
+            if indegree[k] == 0:
+                zerodegreeq.addq(k)
+    return toposortlist
 
-def hor_join(x1,x2):
-    return np.concatenate((x1,x2),axis=1)
+def longestpath(L,Alist):
+    steps = {}
+    for u in Alist.keys():
+        steps[u] = 0
 
-def col_sum(x1):
-    return np.sum(x1,axis = 0)
+    for i in L:
+        for j in Alist[i]:
+            steps[j] = max(steps[i] + 1, steps[j])
 
-def row_sum(x2):
-    return np.sum(x1,axis = 1)
+    maxm = 0
+    for i in step:
+        if (step[i] > maxm):
+            maxm = step[i]
+
+    return maxm+1
 
 
+d = {
+    0:[],
+    1:[],
+    2:[5],
+    3:[0],
+    4:[0],
+    5:[1,3],
+    6:[5],
+    7:[1,3,4,6]
+}   
 
-if __name__=="__main__":
-    arr = np.array([
-        [1, 5],
-        [2, 6],
-        [3, 7],
-        [4, 8]
-        ])
-    arr2 = np.array([2,3,4,5])
-
-    print(np.matmul(arr2,arr))
+print(longestpath(toposort(d),d))
