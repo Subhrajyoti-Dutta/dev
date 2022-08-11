@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 a="""def KNN(class1,class2,x_new):\n
   dist1 = np.sum((np.transpose(x_new)-class1)**2,axis=1)  \n
   dist2 = np.sum((np.transpose(x_new)-class2)**2,axis=1)\n
@@ -21,3 +22,12 @@ except Exception as e:\n
 \n"""
 a.split("\n\n")
 print("\n".join(a.split("\n\n")))
+=======
+import numpy as np
+
+print(np.add(np.array([1]), np.array([])))  # outputs empty array
+
+# print(np.add(np.array([1, 2]), np.array([])))  # raises ValueError
+
+print(np.source(np.add))
+>>>>>>> dd03edc64e89a4288145cb993c5c8243bfcab11c

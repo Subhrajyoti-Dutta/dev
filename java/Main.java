@@ -1,35 +1,42 @@
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
-        Scanner scan = new Scanner( System.in );
-        HashMap<String, Integer> numbers = new HashMap<String, Integer>();
-        numbers.put("zero", 0);
-        numbers.put("one",  1);
-        numbers.put("two",  2);
-        numbers.put("three",3);
-        numbers.put("four", 4);
-        numbers.put("five", 5);
-        numbers.put("six",  6);
-        numbers.put("seven",7);
-        numbers.put("eight",8);
-        numbers.put("nine", 9);
-        StringBuffer numDigits = new StringBuffer();
-        String numWords = scan.next();
-        String[] numDigitsWord = numWords.split(" ");
-        int i = -1;
-        while (++i < numDigitsWord.length) {
-            if (numDigitsWord[i].equals("double")) {
-                numDigits.append(numbers.get(numDigitsWord[++i]));
-                numDigits.append(numbers.get(numDigitsWord[i]));
-            } else if (numDigitsWord[i].equals("triple")) {
-                numDigits.append(numbers.get(numDigitsWord[++i]));
-                numDigits.append(numbers.get(numDigitsWord[i]));
-                numDigits.append(numbers.get(numDigitsWord[i]));
-            } else {
-                numDigits.append(numbers.get(numDigitsWord[i]));
+    public static int func(int[] arr){
+        int totalSum = sum(arr);
+        int sum = 0;
+        int breakPoint = 0;
+        for (int i = 0; i < arr.length; i++) {
+            totalSum -= arr[i];
+            if (sum == totalSum / 2) {
+                breakPoint = i;
+                break;
+            } else if (sum > totalSum/2) {
+                return 0;
             }
         }
-        System.out.println(numDigits.toString());
+        int leftarr[] = new int[breakPoint+1];
+        int rightarr[] = new int[arr.length - breakPoint - 1];
+        return 1+Math.max(func(leftarr), func(rightarr));
+    }
+
+    public static int sum(int[] arr) {
+        int res = 0;
+        for (int i = 0; i < arr.length; i++) {
+            res += arr[i];
+        }
+        return res;
+    }
+
+    public static void main(String[] args){
+        Scanner scanner = new Scanner( System.in );
+        int T = scanner.nextInt();
+        for (int t = 0; t < T; t++) {
+            int N = scanner.nextInt();
+            int[] A = new int[N];
+            for (int i = 0; i < N; i++) {
+                A[i] = scanner.nextInt();
+            }
+            System.out.println(func(A));
+        }
     }
 }
