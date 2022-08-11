@@ -1,1 +1,0 @@
-select * from players where dob = '2004-%%-%%';

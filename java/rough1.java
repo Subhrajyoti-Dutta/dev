@@ -1,3 +1,5 @@
 class rough1{
-    psvm
+    public static void main(String[] args) {
+        System.out.println("Hello world!");
+    }
 }

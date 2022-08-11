@@ -5,9 +5,7 @@ int func(int x, int y) {
 }
 
 int main() {
-    int a, b;
-    a = 12;
-    b = 7;
-    printf("%d", func(a, b));
+    int a = 0xff;
+    printf("%d\n", a);
     return 0;
 }

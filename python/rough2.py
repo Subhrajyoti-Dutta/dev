@@ -1,13 +1,11 @@
-import time
+import numpy as np
 
-def add():
-	x = 0
-	for i in range(10000000+1):
-		x += i
-	print(x)
+arr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [8, 9, 10]
+]
 
-a = time.time()
-add()
-b = time.time()
+a = np.array(arr)
 
-print(b-a)
+print(a)
